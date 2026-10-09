@@ -10,6 +10,10 @@ The included Actions workflow uses a GitHub-hosted Mac. Push to `main`, or open 
 
 The workflow runs file-copy tests, builds a device executable, verifies the package, and uploads the IPA and a SHA-256 checksum. Artifacts expire after 14 days. Actual USB and SMB transfers require testing with a physical iPad and Windows PC; the automated tests do not establish that those transfers work end to end.
 
+## Install from Windows with a free Apple account
+
+One third-party option is [Sideloadly](https://sideloadly.io/), which supports Windows and free Apple accounts. Download the IPA artifact, extract it, then follow Sideloadly's current setup instructions to sign and install it on your USB-connected iPad. Enter account credentials in the signing tool yourself, not in GitHub or chat. Enable Developer Mode and trust the developer profile if prompted. Free-account installations expire after seven days and need refreshing. This installation route has not been tested with this app on your iPad. See the [Sideloadly FAQ](https://sideloadly.io/faq.html) for requirements and limits.
+
 ## Wi-Fi transfers
 
 1. Connect both devices to the same trusted local network.
