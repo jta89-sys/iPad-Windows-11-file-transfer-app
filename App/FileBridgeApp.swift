@@ -74,7 +74,7 @@ final class Inbox: ObservableObject {
 }
 
 private enum ActiveSheet: String, Identifiable {
-    case add, export, help
+    case add, export, wifi, help
     var id: String { rawValue }
 }
 
@@ -104,6 +104,8 @@ struct InboxView: View {
                     } label: { Label("Copy to folder", systemImage: "folder.badge.plus") }
                         .buttonStyle(.bordered)
                         .disabled(selected.isEmpty)
+                    Button { sheet = .wifi } label: { Label("Direct Wi-Fi", systemImage: "wifi") }
+                        .buttonStyle(.bordered)
                     Spacer()
                 }.padding(.horizontal).disabled(inbox.busy)
 
@@ -165,6 +167,7 @@ struct InboxView: View {
                             sheet = nil
                             inbox.message = "Copy completed to the folder you chose."
                         } onCancel: { sheet = nil }
+                    case .wifi: NavigationStack { PadBridgeWiFiView() }
                     case .help: SetupView()
                     }
                 }
